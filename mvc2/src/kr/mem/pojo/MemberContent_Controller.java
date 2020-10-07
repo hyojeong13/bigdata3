@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.mem.model.MemberMyBatisDAO;
 import kr.mem.model.Member_DAO;
 import kr.mem.model.Member_VO;
 
@@ -16,11 +17,12 @@ public class MemberContent_Controller implements Controller{
 			throws ServletException, IOException {
 		
 		int num = Integer.parseInt(request.getParameter("num"));
-		Member_DAO dao = new Member_DAO();
+		MemberMyBatisDAO dao = new MemberMyBatisDAO();
+		//Member_DAO dao = new Member_DAO();
 		Member_VO vo = dao.memberContent(num);
 		
 		//memberContent.jsp
-		//°´Ã¼ ¹ÙÀÎµù
+		//ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½Îµï¿½
 		request.setAttribute("vo", vo);
 		
 		return "member/memberContent.jsp";

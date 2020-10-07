@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>
+	<command path="/list.do" pojo="kr.mem.pojo.MemberList_Controller"/>
+	<command path="/insert.do" pojo="kr.mem.pojo.MemberInsert_Controller"/>
+	<command path="/insertForm.do" pojo="kr.mem.pojo.MemberInsertForm_Controller"/>
+	<command path="/delete.do" pojo="kr.mem.pojo.MemberDelete_Controller"/>
+	<command path="/content.do" pojo="kr.mem.pojo.MemberContent_Controller"/>
+	<command path="/update.do" pojo="kr.mem.pojo.MemberUpdate_Controller"/>
+	<command path="/login.do" pojo="kr.mem.pojo.MemberLogin_Controller"/>
+</commands>

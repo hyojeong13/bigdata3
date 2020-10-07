@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.mem.model.MemberMyBatisDAO;
 import kr.mem.model.Member_DAO;
 import kr.mem.model.Member_VO;
 
@@ -26,17 +27,14 @@ public class MemberInsert_Controller implements Controller{
 		vo.setPhone(phone);
 		vo.setAddr(addr);
 		
-		Member_DAO dao = new Member_DAO();
-		int cnt = dao.MemInsert(vo);
+		//Member_DAO dao = new Member_DAO();
+		
+		MemberMyBatisDAO dao = new MemberMyBatisDAO();
+		int cnt = dao.memberInsert(vo);
 		
 		String page=null;
 		
 		if (cnt>0) {
-			//성공하면 list 창을 다시 보여줘야함.
-			//front에서
-			//sendRedirect 를 사용하는 경우. no 포워딩.
-			// :을 기준으로 쪼개서 뒤만 사용.
-			// redirect가 있으면, rediriect를 사용하기 위해.
 			page= "redirect:"+cpath+"/list.do";
 			
 		}else {

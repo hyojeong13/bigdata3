@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.mem.model.MemberMyBatisDAO;
 import kr.mem.model.Member_DAO;
 
 public class MemberDelete_Controller implements Controller{
@@ -17,7 +18,8 @@ public class MemberDelete_Controller implements Controller{
 		String cpath = request.getContextPath();
 		
 		String page = null;
-		Member_DAO dao = new Member_DAO();
+		MemberMyBatisDAO dao = new MemberMyBatisDAO();
+		//Member_DAO dao = new Member_DAO();
 		
 		int num = Integer.parseInt(request.getParameter("num"));
 

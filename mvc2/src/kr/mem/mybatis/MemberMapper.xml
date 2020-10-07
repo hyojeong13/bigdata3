@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.mem.mybatis.MemberMapper">
+	<insert id="memberInsert" parameterType="kr.mem.model.Member_VO">
+		<!-- id는 메소드명과 같게, 파라미터 타입은 ?에 해당하는..파라미터. 여기서는 vo에 해당-->
+		<!-- db - config - mapper 순서-->
+		insert into tblMem values(seq_num.nextval,
+		#{name}, #{phone}, #{addr}, #{lat}, #{lng})
+	</insert>
+	<select id="memberAllList" resultType="kr.mem.model.Member_VO">
+		select * from tblMem order by num desc
+	</select>
+	<delete id="memberDelete" parameterType="int">
+		delete from tblMem where num=#{num}
+	</delete>
+	<select id="memberContent" parameterType="int" resultType="kr.mem.model.Member_VO">
+		select * from tblMem where num=#{num}
+	</select>
+	<update id="MemberUpdate" parameterType="kr.mem.model.Member_VO">
+		update tblMem set phone=#{phone}, addr=#{addr} where num=#{num}
+	</update>
+</mapper>
